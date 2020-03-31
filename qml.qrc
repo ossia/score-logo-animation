@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ossia-score.png</file>
+        <file>Montserrat-Regular.ttf</file>
+        <file>Catamaran-Regular.ttf</file>
+    </qresource>
+</RCC>
