@@ -8,6 +8,7 @@ Window {
     width: 1920
     height: 1080
     color: "#1F1F20"
+    readonly property real time_ratio: 20
 
     visibility: Window.FullScreen
     flags: Window.FramelessWindowHint
@@ -86,7 +87,7 @@ Window {
                 property: "scale"
                 from: 0
                 to: 0.7
-                duration: 800
+                duration: time_ratio *  800
                 easing.type: Easing.OutQuad
             }
             NumberAnimation {
@@ -94,14 +95,14 @@ Window {
                 property: "opacity"
                 from: 0
                 to: 1
-                duration: 200
+                duration: time_ratio *  200
                 easing.type: Easing.InOutExpo
             }
 
             SequentialAnimation{
 
                 PauseAnimation {
-                    duration: 600
+                    duration: time_ratio *  600
                 }
 
                 ParallelAnimation{
@@ -111,7 +112,7 @@ Window {
                         property: "rotation"
                         from: 0
                         to: 360 * 2
-                        duration: 1000
+                        duration: time_ratio *  1000
                         easing.type: Easing.InOutCubic
                     }
                     NumberAnimation {
@@ -119,13 +120,13 @@ Window {
                         property: "anchors.horizontalCenterOffset"
                         from: 0
                         to: -500
-                        duration: 1000
+                        duration: time_ratio *  1000
                         easing.type: Easing.InOutQuint
                     }
                     SequentialAnimation{
 
                         PauseAnimation {
-                            duration: 800
+                            duration: time_ratio *  800
                         }
                         ParallelAnimation{
                             NumberAnimation {
@@ -133,7 +134,7 @@ Window {
                                 property: "opacity"
                                 from: 0
                                 to: 1
-                                duration: 500
+                                duration: time_ratio *  500
                                 easing.type: Easing.InOutQuad
                             }
                         }
@@ -142,7 +143,7 @@ Window {
                             property: "opacity"
                             from: 0
                             to: 1
-                            duration: 500
+                            duration: time_ratio *  500
                             easing.type: Easing.InOutSine
                         }
                     }
@@ -153,6 +154,8 @@ Window {
 
     MouseArea{
         anchors.fill: parent
+
+        cursorShape: Qt.BlankCursor
         onClicked: animMovement.start();
     }
 }
