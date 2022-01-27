@@ -2,16 +2,24 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Window 2.3
 
-Window {
+Item {
     id: window
-    visible: true
-    width: 1920
-    height: 1080
-    color: "#1F1F20"
-    readonly property real time_ratio: 20
+    //visible: true
+    width: 3840
+    height: 2160
+    //color: "#1F1F20"
+    readonly property real time_ratio: 1
+    readonly property string pwd: "file:///home/jcelerier/ossia/score-logo-animation"
+    readonly property string ppwd: "/home/jcelerier/ossia/score-logo-animation"
 
-    visibility: Window.FullScreen
-    flags: Window.FramelessWindowHint
+
+    //flags: Qt.ToolTip  | Qt.FramelessWindowHint  | Qt.WA_TranslucentBackground
+
+    //flags: Qt.FramelessWindowHint  | Qt.WA_TranslucentBackground
+    //color: "#00000000"
+
+    // visibility: Window.FullScreen
+    // flags: Window.FramelessWindowHint
 
     Text
     {
@@ -24,7 +32,7 @@ Window {
             top: image.top
             topMargin: 100
         }
-        font.family: "qrc://Montserrat-Regular.ttf"
+        font.family: "Montserrat-Regular.ttf"
         font.weight: Font.DemiBold
         font.pointSize: 90
         opacity: 0
@@ -40,7 +48,7 @@ Window {
             left: label.left
             leftMargin: 10
         }
-        font.family: "qrc://Catamaran-Regular.ttf"
+        font.family: "Catamaran-Regular.ttf"
         font.weight: Font.DemiBold
         font.pointSize: 30
         opacity: 0
@@ -56,7 +64,7 @@ Window {
             left: label.left
             leftMargin: 10
         }
-        font.family: "qrc://Catamaran-Regular.ttf"
+        font.family: "Catamaran-Regular.ttf"
         font.weight: Font.DemiBold
         font.pointSize: 30
         opacity: sublabel1.opacity
@@ -152,10 +160,12 @@ Window {
         }
     }
 
-    MouseArea{
-        anchors.fill: parent
+    // MouseArea{
+    //     anchors.fill: parent
+// 
+    //     cursorShape: Qt.BlankCursor
+    //     onClicked: animMovement.start();
+    // }
 
-        cursorShape: Qt.BlankCursor
-        onClicked: animMovement.start();
-    }
+    Component.onCompleted: animMovement.start();
 }
